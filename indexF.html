@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+    body{
+        background-image: url(i.jpg.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+        .class1{
+            font-family: 华文行楷;
+            font-size: 45px;
+            color: rgb(198, 55, 55);
+            margin-left: 35px;
+        }
+        .class2{
+            font-family: 华文行楷;
+            font-size: 35px;
+            color: rgb(156, 13, 13);
+            margin-left: 35px;
+        }
+        .class3{
+            font-size: 25px;
+            color: rgb(6, 6, 6);
+            margin-left: 55px;
+        }
+    .nav{
+        height: 40px;
+        width: 100%;
+        background: linear-gradient(rgba(162, 232, 235, 0.676),rgba(79, 148, 151, 0.676));
+        position: fixed;
+        top: 0;
+    }
+    .content{
+         margin-top: 40px;
+         height: 906px; 
+    }
+</style>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+    .navlist li{
+        float: left;
+        height: 40px;
+        width: 150px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .navlist a{
+        color: black;
+        display: block;
+    }
+    .navlist{
+        width: 800px;
+        margin: auto;
+    }
+    .navlist a:hover{
+        background: rgba(53, 142, 145, 0.676);
+
+    }
+</style>
+</head>
+  <style>html {
+  font-size: 10px;
+}
+body {
+  counter-reset: total cleared bombs flagged;
+  font-size: 1.6rem;
+}
+H1 {
+  font-size:2.1rem;
+  margin:1rem auto;
+}
+#game {
+  position:relative;
+  margin-left: 50px;
+  background:rgb(153, 200, 208);
+  width:fit-content;
+  height:fit-content;
+  padding:1rem;
+  border:0.3rem outset rgba(129, 183, 192, 0.719);
+  border-radius:1.7rem;
+}
+.square {
+  position: relative;
+  float: left;
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border: 1px rgb(77, 74, 74) solid;
+  background-color: rgb(196, 196, 196);
+  text-align: center;
+}
+.square > label,
+.square > .flag {
+  position: absolute;
+  left: -0.1rem;
+  top: -0.1rem;
+  right: -0.1rem;
+  bottom: -0.1rem;
+  border: 0.2rem outset grey;
+  background-color: darkgrey;
+}
+#flag-mode {
+  display:none;
+}
+[for="flag-mode"],
+[for="show-bombs"] {
+  display:block;
+  margin:0 auto;
+  width:fit-content;
+  background:lightgrey;
+  padding:0 0.5rem;
+  border:2px outset grey;
+  border-radius:0.5rem;
+  margin:0.2rem auto;
+}
+#flag-mode:not(:checked) + [for="flag-mode"]:after {
+  content:" 开 ";
+  font-weight:bold;
+}
+#flag-mode:checked + [for="flag-mode"]:after {
+  content:" 关 ";
+  font-weight:bold;
+}
+.open-square,.flag-square {
+  position: absolute;
+  left: -1000rem;
+}
+.open-square:not(.bomb) {
+  counter-increment:total;
+}
+.open-square.bomb {
+  counter-increment:bombs;
+}
+.open-square:checked + .square > label {
+  display: none;
+}
+:not(.bomb)[data-count] + .square:before {
+  line-height:2rem;
+  font-weight:bold;
+}
+:not(.bomb)[data-count="1"] + .square:before {
+  content:"1";
+  color: rgb(0, 26, 255);
+}
+:not(.bomb)[data-count="2"] + .square:before {
+  content:"2";
+  color: rgb(255, 0, 0);
+}
+:not(.bomb)[data-count="3"] + .square:before {
+  content:"3";
+  color: rgb(151, 36, 222);
+}
+:not(.bomb)[data-count="4"] + .square:before {
+  content:"4";
+  color: rgb(2, 189, 2);
+}
+:not(.bomb)[data-count="5"] + .square:before {
+  content:"5";
+  color: rgb(171, 1, 86);
+}
+:not(.bomb)[data-count="6"] + .square:before {
+  content:"6";
+  color: rgb(36, 155, 252);
+}
+:not(.bomb)[data-count="7"] + .square:before {
+  content:"7";
+  color: rgb(69, 14, 65);
+}
+:not(.bomb)[data-count="8"] + .square:before {
+  content:8;
+  color: rgb(255, 0, 234);
+}
+.bomb + .square {
+  background-color: rgb(255, 0, 0)
+}
+.bomb + .square:before {
+  content: "💣";
+  line-height: 2rem;
+  font-size: 1.7rem;
+}
+.flag {
+  display:none;
+}
+.flag-square:checked ~ .flag {
+  display:block;
+  counter-increment:flagged;
+}
+.flag-square:checked ~ .flag-label:before,
+.flag-square:checked ~ .flag:before {
+content:"🚩"
+}
+#flag-mode:not(:checked) ~ .square > .flag-label {
+  display:none;
+}
+#flag-mode:checked ~ .show-square:not(:checked) + .square > .flag-label {
+  display:block;
+}
+.open-square:not(.bomb):checked {
+  counter-increment: total cleared;
+}
+.bombs {
+  width:50%;
+  text-align:center;
+}
+.score {
+  clear:both;
+  float:right;
+  text-align:right;
+  width:50%;
+  text-align:center;
+}
+.bombs:after {
+  content: counter(bombs) "🚩" counter(flagged);
+  line-height:3rem;
+  border:0.2rem inset lightgrey;/*旗子数边上的边框颜色*/
+  padding:0.2rem 0.5rem;
+  background-color:white;/*旗子数颜色框*/
+  border-radius:0.5rem;
+}
+.score:after {
+  content: counter(cleared) " of " counter(total);
+  line-height:3rem;
+  border:0.2rem inset lightgrey;
+  padding:0.2rem 0.5rem;
+  background-color:white;
+  border-radius:0.5rem;
+}
+.message {
+  clear: left;
+  color: rgb(16, 174, 16);
+  text-align:center;
+  font-weight:bold;
+}
+.message:before {
+  content: " 🎉VICTORY🎉（刷新重玩）  "
+}
+.pane
+{
+  display:block;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+}
+.open-square:not(.grouped):not(.bomb):not(:checked) ~ .message:before,
+.group-master:not(:checked) ~ .message:before
+{
+  content: none;
+}
+.open-square:not(.grouped):not(.bomb):not(:checked) ~ .pane,
+.group-master:not(:checked) ~ .pane,
+.lost-game
+{
+  display: none;
+}
+.open-square.bomb:checked ~ .message {
+  color: rgb(255, 0, 0);
+}
+.open-square.bomb:checked ~ .pane
+{
+  position:relative;
+  display:block;
+}
+.open-square.bomb:checked ~ .message:before {
+  content: "  DEFEAT😓（刷新重玩） ";
+}
+.open-square.bomb:checked ~ .lost-game
+{
+  position:relative;
+  display:block;
+  z-index:2
+}
+#show-bombs:checked ~ .bomb + .square > label {
+  display:none;
+}
+#show-bombs:checked ~ .open-square:not(.bomb) + .square > .flag:after {
+  content: "❌";
+  position:absolute;
+  top:-0.2rem;
+  left:-0.2rem;
+}
+.jg{
+      color: rgb(142, 27, 27);
+}
+  </style>
+ </head>
+ <body>
+
+    <div class="nav">
+        <ul class="navlist">
+        <li> <a href="index.html">题目</a></li>
+        <li> <a href="indexB.html">答案</a></li>
+        <li> <a href="indexC.html">拓展</a></li>
+        <li> <a href="indexF.html">扫雷</a></li>
+        <li> <a href="indexK.html">汉诺塔</a></li>
+        </ul>
+    </div>
+    <div class="content">
+      <p class="class2">规则：</p>
+      <p class="class3">在不点错雷的情况下尽可能快的将所有的雷都标记出来</p>
+ <div id="game">
+  <h1>🎀Minesweeper🎀</h1>
+  <input type="checkbox" id="show-bombs" hidden>
+  <input type="checkbox" id="flag-mode">
+  <label for="flag-mode">🚩mode</label>
+  <div class="pane"></div>
+  <div class="score">Exclusion:
+    <br>
+  </div>
+  <div class="bombs">Mark:
+    <br>
+  </div>
+  <div class="message"></div>
+  <div class="lost-game">
+    <label for="show-bombs">Show Bombs</label>
+  </div>
+</div>
+<div>
+  <p class="class1">扫雷递归思想的体现</p>
+  <p class="class2">1.扫雷区域划分</p>
+  <p class="class3">将整个游戏区域划分为若干个小格子，每个小格子可能包含地雷，通过递归的方式，依次检查每个小格子是否有地雷，并将其标记为已处理</p>
+  <p class="class2">2.地雷的计数</p>
+  <p class="class3">对于已处理的格子中的地雷数量，可以使用递归的方式进行统计，如递归地检查相邻的小格子，如果有地雷则计数加一</p>
+  <p class="class2">3.扩展边界</p>
+  <p class="class3">当某个小格子中没有地雷时，可以递归地扩展边界，将相邻的小格子加入到处理队列中，这样可以避免重复处理已经处理过的格子，提高游戏的效率</p>
+</div>
+<script>
+var rows = Math.round(Math.random()*18)+9;
+var cols = Math.round(Math.random()*18)+9;
+var bombs = Math.round(Math.random()*65)+10;
+var i, s, l, fi, fs, fl;
+var game = document.getElementById('game');
+var pane = game.querySelector('.pane');
+var grid = [];
+var style = document.createElement('style');
+style.innerHTML = ".square:nth-of-type(" + cols + "n+1) {clear:left;}\n";
+game.insertBefore(style, pane);
+for (var r = 1; r <= rows; r++) {
+  grid[r] = [];
+  for (var c = 1; c <= cols; c++) {
+    i = grid[r][c] = document.createElement('input');
+    i.type = 'checkbox';
+    i.classList.add('open-square')
+    i.id = 'open-r' + r + '-c' + c;
+    i.r = r;
+    i.c = c;
+    game.insertBefore(i, pane);
+    s = document.createElement('span');
+    s.classList.add('square');
+    game.insertBefore(s, pane);
+    l = document.createElement('label');
+    l.htmlFor = i.id;
+    l.classList.add('open-label');
+    s.appendChild(l);
+    fi = document.createElement('input');
+    fi.type = "checkbox";
+    fi.classList.add('flag-square');
+    fi.id = 'flag-r' + r + '-c' + c;
+    s.appendChild(fi);
+    fs = document.createElement('span');
+    fs.classList.add('flag');
+    s.appendChild(fs);
+    fl = document.createElement('label');
+    fl.htmlFor = fi.id;
+    fl.classList.add('flag-label');
+    s.appendChild(fl);
+  }
+}
+for (var b = 0; b < bombs; b++) {
+  do {
+    r = 1 + (Math.random() * rows) >> 0;
+    c = 1 + (Math.random() * cols) >> 0;
+    console.log(r, c, grid[r][c]);
+  } while (grid[r][c].classList.contains('bomb'));
+  i = grid[r][c];
+  i.classList.add('bomb');
+  var list = getSurrounding(i)
+  for (r = 0; r < list.length; r++) {
+    i = list[r];
+    var count = Number(i.getAttribute('data-count')) || 0;
+    i.setAttribute('data-count', ++count);
+    i = i.nextElementSibling;
+    i.setAttribute('data-count', count);
+  }
+}
+var group = 1;
+while (i = document.querySelector('.open-square:not([data-count]):not(.grouped)')) {
+  var check = [i];
+  do {
+    i = check.pop();
+    list = getSurrounding(i)
+    for (r = 0; r < list.length; r++) {
+      i = list[r];
+      if (!i.classList.contains('group' + group)) {
+        i.classList.add('grouped');
+        i.classList.add('group' + group);
+        if (!i.getAttribute('data-count')) {
+          check.push(i);
+          i = document.querySelector('[for="' + i.id + '"]');
+          i.htmlFor = 'group' + group;
+        }
+      }
+    }
+  } while (check.length);
+  i = document.createElement('input');
+  i.type = 'checkbox';
+  i.classList.add('group-master');
+  i.hidden = true;
+  i.id = 'group' + group;
+  style.innerHTML += '#group' + group + ':checked ~ .group' + group + ' + .square > label { display:none; }\n' + '#group' + group + ':checked ~ .group' + group + ' { counter-increment:cleared total }\n';
+  game.insertBefore(i, style);
+  group++;
+}
+function getSurrounding(i) {
+  var rs = Math.max(i.r - 1, 1);
+  var re = Math.min(i.r + 1, rows);
+  var cs = Math.max(i.c - 1, 1);
+  var ce = Math.min(i.c + 1, cols);
+  var result = [];
+  for (r = rs; r <= re; r++) {
+    for (c = cs; c <= ce; c++) {
+      result.push(grid[r][c]);
+    }
+  }
+  return result;
+}
+</script>
+</div>
+</body>
+</html>

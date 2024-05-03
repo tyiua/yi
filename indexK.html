@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 750px;
+    height: 470px;
+    margin-left: 50px ;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+}
+        .container .cloumns{
+    width: 20px;
+    border-radius: 10px 10px 0 0 ;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(149, 149, 149);
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+.container .bot{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(149, 149, 149);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px 20px 20px 20px;
+
+}
+.container .cloumns > div{
+    width: 150px;
+    height: 25px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 100px;
+    background-color: rgb(121, 194, 212);
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+}
+.btns{
+    display: flex;
+    width: 750px;
+    margin-left: 50px ;
+    justify-content: space-around;
+
+}
+.btns > div > button{
+    width: 50px;
+    height: 40px;
+    margin: 10px 1em;
+    cursor: pointer;
+    border-radius:1.5rem;
+
+}
+.container .success{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .success > div{
+    font-size:30px;
+    font-weight: bold;
+    color: #f00;
+}
+    </style>
+    <style type="text/css">
+        body{
+            background-image: url(i.jpg.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    </style>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        .class1{
+            font-family: 华文行楷;
+            font-size: 45px;
+            color: rgb(198, 55, 55);
+            margin-left: 35px;
+        }
+        .class2{
+            font-family: 华文行楷;
+            font-size: 35px;
+            color: rgb(156, 13, 13);
+            margin-left: 35px;
+        }
+        .class3{
+            font-size: 25px;
+            color: rgb(6, 6, 6);
+            margin-left: 55px;
+        }
+         .nav{
+            height: 40px;
+            width: 100%;
+            background: linear-gradient(rgba(162, 232, 235, 0.676),rgba(79, 148, 151, 0.676));
+            position: fixed;
+            top: 0;
+         }
+         .content{
+             margin-top: 40px;
+             height: 906px; 
+         }
+    </style>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .navlist li{
+            float: left;
+            height: 40px;
+            width: 150px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .navlist a{
+            color: black;
+            display: block;
+        }
+        .navlist{
+            width: 800px;
+            margin: auto;
+        }
+        .navlist a:hover{
+            background: rgba(53, 142, 145, 0.676);
+
+        }
+        .jg{
+            color: rgb(142, 27, 27);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p class="class2">规则：</p>
+        <p class="class3">将第一根柱子上的圆盘按顺序移到第三根柱子上</p>
+        <div class="container">
+            <div class="cloumns" id="c1"></div>
+            <div class="cloumns" id="c2"></div>
+            <div class="cloumns" id="c3"></div>
+            <div class="bot"></div>
+            <div class="success">
+               <div>🎉VICTORY🎉刷新重玩</div>
+            </div>
+        </div>
+        
+        <div class="nav">
+            <ul class="navlist">
+            <li> <a href="index.html">题目</a></li>
+            <li> <a href="indexB.html">答案</a></li>
+            <li> <a href="indexC.html">拓展</a></li>
+            <li> <a href="indexF.html">扫雷</a></li>
+            <li> <a href="indexK.html">汉诺塔</a></li>
+            </ul>
+        </div>
+        <div class="btns">
+            <div>
+                <button data-from="c1" data-to="c3">左</button>
+                <button data-from="c1" data-to="c2">右</button>
+            </div>
+            <div>
+                <button data-from="c2" data-to="c1">左</button>
+                <button data-from="c2" data-to="c3">右</button>
+            </div>
+            <div>
+                <button data-from="c3" data-to="c2">左</button>
+                <button data-from="c3" data-to="c1">右</button>
+            </div>
+        </div>
+        <div>
+            <p  class="class1">汉诺塔递归思想的体现</p>
+            <p class="class2">分治策略（盘子的移动）</p>
+            <p class="class3">a.如果只有一个盘子，直接将其从起始柱子移动到目标柱子即可。</p>
+            <p class="class3">b.如果有两个盘子，可以分别将它们从起始柱子移到辅助柱子，再从辅助柱子移到目标柱子</p>
+            <p class="class3">c.如果有三个盘子或更多盘子，可以将它们分成大小两部分，分别使用递归的方式解决，再将结果合并到目标柱子</p>
+        </div>
+    </div>
+<script>
+let c1 = document.getElementById('c1');
+let c2 = document.getElementById('c2');
+let c3 = document.getElementById('c3');
+    const cloumns = {
+    c1: [ 5, 4, 3, 2, 1],
+    c2: [],
+    c3: []
+}
+const minWidth = 60;
+const stepWidth = 40;
+function render() {
+    createDom(cloumns.c1, c1);
+    createDom(cloumns.c2, c2);
+    createDom(cloumns.c3, c3);
+    function createDom(arr, dom) {
+        dom.innerHTML = '';
+        for (let i = 0; i < arr.length; i++) {
+            const n = arr[i];
+            const div = document.createElement('div');
+            div.style.width = minWidth + (n - 1) * stepWidth + 'px';
+            dom.appendChild(div);
+        }
+    }
+}
+render();
+let btns = document.querySelectorAll('button');
+let success = document.getElementsByClassName('success')[0];
+for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = () => {
+            var from = cloumns[btns[i].dataset.from];
+            var to = cloumns[btns[i].dataset.to];
+            move(from, to);
+        }
+}
+function move(from, to) {
+    if (from.length === 0) {
+        return;
+    }
+    if (to.length === 0) {
+        to.push(from.pop());
+        render();
+    }
+    else{
+        check(from, to);
+    }
+}
+function check(from, to){
+    const fromLast = from[from.length - 1];
+    const toLast = to[to.length - 1];
+    if(fromLast < toLast){
+        to.push(from.pop());
+        render();
+    }else{
+        return;
+    }
+    if(cloumns.c1.length === 0 && cloumns.c2.length === 0){
+        success.style.opacity = 1;
+        for(let i = 0; i < btns.length; i++){
+            btns[i].style.opacity = 0;
+        }
+    }
+}
+</script>
+</body>
+</html>

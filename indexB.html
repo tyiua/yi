@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="/path/to/styles/default.css">
+    <script src="/path/to/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            height: 40px;
+            width: 100%;
+            background: linear-gradient(rgba(250, 116, 219, 0.676),rgba(239, 111, 188, 0.822));
+            position: fixed;
+            top: 0;
+        }
+        body{
+            background-image: url(i.jpg.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .content{
+             margin-top: 40px; 
+        }
+        .class1{
+            font-family: Times New Roman;
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+            margin-left: 55px;
+        }
+        .class2{
+            font-family: 华文行楷;
+            font-size: 45px;
+            color: rgb(198, 55, 55);
+            margin-left: 35px;
+        }
+
+    </style>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .nav{
+            height: 40px;
+            background: linear-gradient(rgba(162, 232, 235, 0.676),rgba(79, 148, 151, 0.676));
+        }
+        .navlist li{
+            float: left;
+            height: 40px;
+            width: 150px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .navlist a{
+            color: black;
+            display: block;
+        }
+        .navlist{
+            width: 800px;
+            margin: auto;
+        }
+        .navlist a:hover{
+            background: rgba(53, 142, 145, 0.676);
+
+        }
+        .jg{
+            color: rgb(142, 27, 27);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="navlist">
+        <li> <a href="index.html">题目</a></li>
+        <li> <a href="indexB.html">答案</a></li>
+        <li> <a href="indexC.html">拓展</a></li>
+        <li> <a href="indexF.html">扫雷</a></li>
+        <li> <a href="indexK.html">汉诺塔</a></li>
+        </ul>
+    </div>
+    <div class="content">
+    <p class="class2">第一题：</p>
+    <pre class="class1">
+    <code class="language-html">
+        #include <stdio.h>
+        int taozi(int n)
+        {
+            int num;
+            if(n==10)
+            {
+               return 1;
+            } 
+            else
+            {
+                num = (taozi(n+1)+1)*2;
+            }
+            return num;
+        }
+        int main()
+        {
+            int num = taozi(1);
+            printf("猴子第一天摘了%d个桃子\n", num);
+            return 0;
+        }
+    </code>
+    </pre>
+    <p class="class2">第二题：</p>
+    <pre class="class1">
+    <code class="language-html">
+        #include <stdio.h>
+        int cifang(int n,int k)
+        {
+            if(k == 1)
+                return n;
+            else { 
+                return cifang(n,k-1)*n;
+            }
+        }
+        int main (){
+            int n,k;
+            scanf("%d %d",&n,&k);
+            printf("%d",cifang(n,k));
+            return 0;
+        }   
+    </code>
+    </pre>
+    <p class="class2">第三题：</p>
+    <pre class="class1">
+        <code class="language-html">
+         #include <stdio.h>
+        int jiecheng(int n)
+        {
+            if (n == 1)
+            {
+                return 1;
+            }
+            return n*jiecheng(n - 1);
+        }
+        int main()
+        {
+            int n = 0;
+            scanf("%d", &n);
+            int a= jiecheng(n);
+            printf("%d", a);
+            return 0;
+        }             
+        </code>
+        </pre>
+    </div>
+</body>
+</html>

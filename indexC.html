@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .class1{
+            font-family: 华文行楷;
+            font-size: 45px;
+            color: rgb(198, 55, 55);
+            margin-left: 35px;
+        }
+        .class2{
+            font-family: 华文行楷;
+            font-size: 35px;
+            color: rgb(156, 13, 13);
+            margin-left: 35px;
+        }
+        .class3{
+            font-size: 25px;
+            color: rgb(6, 6, 6);
+            margin-left: 55px;
+        }
+        body{
+            background-image: url(i.jpg.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .nav{
+            height: 40px;
+            width: 100%;
+            background: linear-gradient(rgba(250, 116, 219, 0.676),rgba(239, 111, 188, 0.822));
+            position: fixed;
+            top: 0;
+        }
+        .content{
+            margin-top: 40px; 
+
+        }
+    </style>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .nav{
+            height: 40px;
+            background: linear-gradient(rgba(162, 232, 235, 0.676),rgba(79, 148, 151, 0.676));
+
+
+        }
+        .navlist li{
+            float: left;
+            height: 40px;
+            width: 150px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .navlist a{
+            color: black;
+            display: block;
+        }
+        .navlist{
+            width: 800px;
+            margin: auto;
+        }
+        .navlist a:hover{
+            background: rgba(53, 142, 145, 0.676);
+
+        }
+        .jg{
+            color: rgb(142, 27, 27);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul class="navlist">
+        <li> <a href="index.html">题目</a></li>
+        <li> <a href="indexB.html">答案</a></li>
+        <li> <a href="indexC.html">拓展</a></li>
+        <li> <a href="indexF.html">扫雷</a></li>
+        <li> <a href="indexK.html">汉诺塔</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <p class="class1">递归在科技领域的运用</p> 
+        <p class="class2">1.数据压缩与加密</p>
+        <p class="class3">
+            数据压缩：<br>
+            1.分块递归压缩：递归地分割数据块，将大块数据分解为小块，并对每个小块进行压缩。适用于文本、图像和音频等可重复的数据类型。<br>
+            2.递归哈夫曼编码：哈夫曼编码是一种基于统计的压缩算法，它通过对数据中的符号频率进行递归分析，创建出具有最小冗余度的编码。<br>
+            3.递归字典式压缩：通过创建重复的模式或单词的字典，然后递归地应用这些模式或单词到新的数据块中。特别适用于文本数据。<br>
+            加密：<br>
+            1.递归加密算法：递归加密算法是一种基于递归思想的加密方法，它将明文数据分割成更小的块，并对每个块进行加密。这种方法能够实现更高的安全性，因为加密过程会逐层分解数据，增加了破解的难度。<br>
+            2.基于密钥的递归加密：需要两个或更多的密钥，每次加密时使用下一个更高的级别。这种方式能确保即使一个密钥被泄露，其他密钥仍然安全。<br>
+        </p>
+        <p class="class2">2.算法设计和优化</p>
+        <p class="class3">
+            1. 分治策略：将一个问题分解为更小的子问题，然后递归地解决这些子问题，最后再将子问题的解决方案组合起来以解决原始问题。这种策略在树形搜索、动态规划、回溯算法等场景中尤为常见。<br>
+            2. 优化重复操作：对于一些需要重复执行相同或相似任务的问题，我们可以使用递归来减少重复的代码。<br>
+            3. 算法优化：通过将问题分解为更小的子问题，递归可以帮助我们找到更好的解决方案，或者减少解决问题的步骤数量。<br>
+            4. 代码可读性和可维护性：使用递归来解决问题的代码通常更容易理解和维护。因为递归允许我们将复杂的问题分解为更小的部分，每个部分都有其特定的逻辑，这样可以帮助我们更好地理解整个问题的解决方案。<br>
+            5. 实现自定义数据结构：递归可以用来实现自定义的数据结构，如栈、队列、树等。这些数据结构通常需要处理大量重复或相似的操作，递归可以帮助我们更有效地实现这些操作。<br>
+        </p>
+        <p class="class2">3.软件开发</p>
+        <p class="class3">
+            1.递归模式：递归模式是一种在软件设计中重复使用的模式，它们可以用来解决特定类型的问题。这个模式可以帮助开发人员编写更清晰、更易于维护的代码。<br>
+            2.递归GUI设计：递归可以用于设计和实现复杂的图形用户界面。递归GUI设计允许开发人员使用一个单一的界面元素来控制多个窗口或子窗口的行为。这可以提高用户体验，并使界面更加灵活和易于使用。<br>
+            3.递归测试：在软件测试中，递归可以用来自动化测试流程，包括创建测试用例和执行测试。递归测试框架允许开发人员使用循环和条件语句来模拟不同的场景和情况，从而提高测试覆盖率和准确。<br>
+        </p>
+        <p class="class2">4.计算机图形学</p>
+        <p class="class3">
+            1.层次渲染（Level of Detail, LOD）：当处理大量的三维对象时，需要有效地管理和调度它们。为了优化渲染效果，可以基于物体复杂度（或者说大小和密度）递归地选择适合当前视角和硬件能力的渲染细节级别。<br>
+            2. 细分曲面（Subdivision Surfaces）：细分曲面是通过递归地将一个简单的三角形网格细分成更小的网格来实现的。这种方法可以创建出非常逼真的纹理和形状，并且在渲染时可以获得更好的视觉效果。<br>
+            3. 动画生成：可以使用递归的方法来生成一系列的形状或纹理，这些形状或纹理可以在不同的时间点被应用到对象上，从而创建出复杂的动画效果。<br>
+            4. 光线追踪算法：光线追踪算法是一种用于计算光线在三维空间中传播的方法。这种方法通常需要递归地遍历场景中的每个物体，并计算光线与每个物体之间的相互作用。通过这种方式，可以模拟光照、阴影和反射等现象，从而创建出逼真的渲染效果。<br>
+            5. 深度优先遍历算法：在计算机图形学中，可以使用深度优先遍历算法来遍历三维场景中的对象，并按照一定的顺序渲染它们。这种方法通常需要递归地访问场景中的每个对象，并按照一定的规则进行渲染。<br>
+        </p>
+    </div>
+</body>
+</html>
